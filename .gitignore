@@ -9,3 +9,5 @@ storage/*
 .DS_Store
 
 *.log
+.env
+.env.*
