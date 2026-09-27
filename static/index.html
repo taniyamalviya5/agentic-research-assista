@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentic Research Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <p class="eyebrow">C16 • Agentic AI with Code Assistant</p>
+        <h1>Intelligent Research Assistant</h1>
+        <p class="subtitle">Hybrid RAG + web research with ChromaDB, BGE embeddings, CrewAI and Groq.</p>
+      </div>
+      <div id="health" class="status">Checking...</div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h2>1. Add research paper</h2>
+        <p>Upload a PDF to chunk, embed and index it in ChromaDB.</p>
+        <input id="pdf" type="file" accept=".pdf">
+        <button onclick="uploadPdf()">Index PDF</button>
+        <div id="uploadResult" class="muted"></div>
+      </article>
+
+      <article class="card">
+        <h2>2. Ask a research question</h2>
+        <textarea id="query" rows="5" placeholder="Example: What is the key contribution of the paper?"></textarea>
+        <label class="checkbox">
+          <input id="web" type="checkbox" checked>
+          Allow Tavily web search
+        </label>
+        <button onclick="research()">Research</button>
+      </article>
+    </section>
+
+    <section id="answerCard" class="card hidden">
+      <div class="answerHeader">
+        <h2>Answer</h2>
+        <span id="route" class="badge"></span>
+      </div>
+      <div id="answer" class="answer"></div>
+      <h3>Sources</h3>
+      <div id="sources"></div>
+      <h3>Evaluation signals</h3>
+      <pre id="metrics"></pre>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
